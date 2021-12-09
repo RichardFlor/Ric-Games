@@ -14,8 +14,10 @@
 		         valor,
 		         descricao,
 		         foto,
-		        destaque,
-		        desconto
+		        
+		        desconto,
+                idcategoria
+               
                 
                 ) 
                 values
@@ -24,15 +26,20 @@
 			        '".$arrayProduto['valor']."',
 		        	'".$arrayProduto['descricao']."',
 		        	'".$arrayProduto['foto']."',
-		        	1,
-		        	1
+		        	
+		        	'".$arrayProduto['desconto']."',
+                    '".$arrayProduto['idcategoria']."'
                    
                     
                 );
                 ";
    
+                
 
         $conexao = conexaoMysql();
+
+        // echo($sql);
+        // die;
 
         if($inserido = mysqli_query($conexao,$sql)){
           return true;

@@ -3,16 +3,16 @@
     require_once('../bd/conexao.php');
 
 
-        function inserir($arrayCategoria)
+        function inserirCategoria($arrayCategoria)
         {
             
             $sql = "insert into tblcategoria
                 (
-                nome
+                categoria
                 ) 
                 values
                 (
-                    '".$arrayCategoria['nome']."'
+                    '".$arrayCategoria['categoria']."'
                 )
                 ";
    

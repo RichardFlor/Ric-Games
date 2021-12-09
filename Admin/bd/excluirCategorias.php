@@ -1,7 +1,7 @@
 <?php
 
     require_once('../bd/conexao.php');
-    function excluir($idcategorias){
+    function excluirCategoria($idcategorias){
         $sql = "delete from tblcategoria where idcategoria = ".$idcategorias;
 
   

@@ -39,13 +39,6 @@ require_once(SRC.'bd/updateUsuario.php');
        </script>");  
    }
       
-   elseif(strlen($nome, $senha, $login)>100)
-       {
-             echo ("<script> 
-           alert('maximo de caracteres');
-           window.history.back(); 
-       </script>"); 
-       }
        else{
          
            $usuarios = array(

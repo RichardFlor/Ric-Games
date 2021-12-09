@@ -8,7 +8,7 @@
 
     session_start();
 
-    $nome = (string) null;
+    $categoria = (string) null;
     $id = (int) 0;
     $modo = (string) "Salvar";
 
@@ -22,7 +22,7 @@
 
     if(isset( $_SESSION['categoria'])){
         $id = $_SESSION['categoria']['idcategoria'];
-        $nome = $_SESSION['categoria']['nome'];
+        $categoria = $_SESSION['categoria']['categoria'];
         $modo = "Atualizar";
 
         unset($_SESSION['categoria']);
@@ -55,10 +55,10 @@
                    
                     <div class="campo">
                         <div class="informacoesPessoais">
-                            <label> Nome: </label>
+                            <label> Categoria: </label>
                         </div>
                         <div class="entradaDeDados">
-                            <input type="text" name="nome" value="<?=$nome?>" placeholder="Digite o nome da categoria" maxlength="50">
+                            <input type="text" name="categoria" value="<?=$categoria?>" placeholder="Digite o nome da categoria" maxlength="50">
                         </div>
                     </div>
                 
@@ -85,14 +85,14 @@
                 </tr>
                 <?php
 
-                $dadosCategorias = exibir();
+                $dadosCategorias = exibirCategoria();
                 
                 while ($exibirCategorias = mysqli_fetch_assoc($dadosCategorias))
                 {
 
                 ?>
                 <tr id="tblLinhas">
-                    <td class="tblColunas registros"><?=$exibirCategorias['nome']?></td>
+                    <td class="tblColunas registros"><?=$exibirCategorias['categoria']?></td>
                     <td class="tblColunas registros">
                         <a href="controles/editaCategorias.php?id=<?=$exibirCategorias['idcategoria']?>">
                             <img src="img/edit.png" alt="Editar" title="Editar" class="editar">

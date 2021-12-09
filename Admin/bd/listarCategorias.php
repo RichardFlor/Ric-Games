@@ -2,7 +2,7 @@
 
 require_once(SRC.'bd/conexao.php');
 
-function listar(){
+function listarCategoria(){
 
     $sql = "select * from  tblcategoria";
 
@@ -14,7 +14,7 @@ function listar(){
 }
 
 
-function busca($idcategoria){
+function buscaCategoria($idcategoria){
    
     $sql = "select * from tblcategoria
     where idcategoria = ".$idcategoria;

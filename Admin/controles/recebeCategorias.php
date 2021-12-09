@@ -8,7 +8,7 @@ require_once(SRC.'bd/update.php');
 
 
 
-   $nome = (string) null;
+   $categoria = (string) null;
    
 
    if(isset($_GET['id'])){ 
@@ -24,11 +24,11 @@ require_once(SRC.'bd/update.php');
    if($_SERVER['REQUEST_METHOD'] == 'POST')
    {
        
-       $nome = $_POST['nome'];
+       $categoria = $_POST['categoria'];
    
        
       
-   if($nome == null)
+   if($categoria == null)
    {
        echo ("<script> 
            alert('".vazia."');
@@ -36,7 +36,7 @@ require_once(SRC.'bd/update.php');
        </script>");  
    }
       
-   elseif(strlen($nome)>50)
+   elseif(strlen($categoria)>50)
        {
              echo ("<script> 
            alert('maximo de caracteres');
@@ -46,7 +46,7 @@ require_once(SRC.'bd/update.php');
        else{
          
            $categorias = array(
-                 "nome" => $nome,
+                 "categoria" => $categoria,
                     "id" =>$id
                
            );
@@ -56,7 +56,7 @@ require_once(SRC.'bd/update.php');
                
           
            //chama a função inserir do arquivo inserirCliente.php, e encaminha o array com os dados do cliente.
-          if (inserir($categorias)) //tratamento para ver se os dados chegaram no banco
+          if (inserirCategoria($categorias)) //tratamento para ver se os dados chegaram no banco
                echo ("
                    <script>
                        alert('". INSERIR ."');
@@ -74,7 +74,7 @@ require_once(SRC.'bd/update.php');
            { 
                
                
-               if(edita($categorias))
+               if(editaCategoria($categorias))
                     echo ("
                        <script>
                            alert('atualizado com sucesso');

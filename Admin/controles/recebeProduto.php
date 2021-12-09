@@ -13,10 +13,10 @@ require_once(SRC.'configuracoes/upload.php');
 
    $nome = (string) null;
    $valor = (string) null;
-   $descricao = (int) 0;
-   $destaque = (string) null;
+   $descricao = (string) null;
+   $destaque = (int) 0;
    $desconto = (string) null; 
-
+    $categoria = (int) 0;
    $foto = (string) null;
    
 
@@ -36,8 +36,9 @@ require_once(SRC.'configuracoes/upload.php');
        $nome = $_POST['nome'];
        $valor = $_POST['valor'];
        $descricao = $_POST['descricao'];
-       $destaque = $_POST['destaque'];
+       
        $desconto = $_POST['desconto'];
+       $categoria = $_POST['sltcategoria'];
       
      //Esse nome esta chegando através do action do form da index, o motivo dessa variavel é para concluir o editar com o upload de foto 
       $nomeFoto = $_GET['nomeFoto'];
@@ -67,7 +68,7 @@ require_once(SRC.'configuracoes/upload.php');
     // die;
        
       
-   if($nome == null || $valor == null || $descricao == null || $destaque == null || $desconto == null)
+   if($nome == null || $valor == null || $descricao == null || $desconto == null || $categoria == null)
    {
        echo ("<script> 
            alert('".vazia."');
@@ -85,7 +86,8 @@ require_once(SRC.'configuracoes/upload.php');
                 "descricao" => $descricao,
                 "foto" => $foto,
                 "destaque" => $destaque,
-                "desconto" => $desconto
+                "desconto" => $desconto,
+                "idcategoria" => $categoria
                       
                
            );

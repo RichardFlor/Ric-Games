@@ -7,7 +7,7 @@ require_once(SRC .'bd/listarCategorias.php');
     
     $idcategoria = $_GET['id'];
   
-    $dadosCategorias = busca($idcategoria);
+    $dadosCategorias = buscaCategoria($idcategoria);
     
     if($exibirCategorias=mysqli_fetch_assoc($dadosCategorias)){
       

@@ -1,10 +1,10 @@
 <?php
     require_once('../bd/conexao.php');
 
-function edita($arrayCategoria)
+function editaCategoria($arrayCategoria)
 {
     $sql = "update tblcategoria set 
-            nome = '".$arrayCategoria['nome']."'
+            categoria = '".$arrayCategoria['categoria']."'
     
         where idcategoria= ".$arrayCategoria['id'];
         $conexao = conexaoMysql();

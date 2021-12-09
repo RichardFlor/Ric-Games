@@ -19,6 +19,9 @@
 
     $modo = (string) "Salvar";
 
+    $idcategoria = (int) null;
+    $categoria = (string) "Selecione uma categoria";
+
 
     require_once('configuracoes/config.php');
 
@@ -26,6 +29,8 @@
     conexaoMysql();
 
     require_once(SRC. 'controles/exibirDadosProduto.php');
+
+    require_once(SRC. 'controles/exibirDadosCategorias.php');
 
     if(isset( $_SESSION['produto'])){
         $id = $_SESSION['produto']['idproduto'];
@@ -36,7 +41,8 @@
 
         $destaque = $_SESSION['produto']['destaque'];
         $desconto = $_SESSION['produto']['desconto'];
-
+        $idcategoria = $_SESSION['produto']['idcategoria'];
+        // $categoria = $_SESSION['produto']['categoria'];
         $modo = "Atualizar";
 
         unset($_SESSION['produto']);
@@ -100,6 +106,31 @@
                             <input type="text" name="descricao" value="<?=$descricao?>" placeholder="Insira a descrição" maxlength="50">
                         </div>
                     </div>
+
+                    
+                    <div class="campo">
+                        <div class="informacoesPessoais">
+                            <label> Categoria: </label>
+                        </div>
+                        <div class="entradaDeDados">
+                            <select name="sltcategoria">
+                           <option selected value="<?=$idcategoria?>"><?=$categoria?> </option>
+                            <?php
+                                $listarCategoria = exibirCategoria();
+
+                                    while($exibirCategoria = mysqli_fetch_assoc($listarCategoria))
+                                    {
+                                        ?>
+                                        <option value="<?=$exibirCategoria['idcategoria']?>"><?=$exibirCategoria['categoria']?></option>
+                                        <?php
+                                    }
+
+                            ?>
+
+                           </select>
+                        </div>
+                    </div>      
+                    
                     <div class="campo">
                         <div class="informacoesPessoais">
                             <label> Destaque: </label>
@@ -107,7 +138,9 @@
                         <div class="entradaDeDados">
                             <input type="checkbox" name="destaque" value="<?=$destaque?>" placeholder="O produto esta em destaque?" maxlength="50">
                         </div>
-                    </div>
+                    </div>  
+
+
 
                     <div class="campos">
                         <div class="informacoesPessoais">

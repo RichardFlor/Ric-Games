@@ -4,7 +4,9 @@ require_once(SRC.'bd/conexao.php');
 
 function listar(){
 
-    $sql = "select * from  tblproduto";
+     $sql = "select * from  tblproduto";
+ 
+
 
     $conexao = conexaoMysql();
 

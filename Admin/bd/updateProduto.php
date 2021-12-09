@@ -9,7 +9,8 @@ function edita($arrayProduto)
  	descricao = '".$arrayProduto['descricao']."',
  	foto = '".$arrayProduto['foto']."',
  	destaque = '".$arrayProduto['destaque']."',	
-    desconto = '".$arrayProduto['desconto']."'   
+    desconto = '".$arrayProduto['desconto']."',
+    idcategoria = '".$arrayProduto['idcategoria']."'  
            
      where idproduto = ".$arrayProduto['id'];
 

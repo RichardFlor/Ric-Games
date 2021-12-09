@@ -2,9 +2,9 @@
 
     
 require_once(SRC . 'bd/listarCategorias.php');
-    function exibir(){
+    function exibirCategoria(){
         
-        $dadosListar =  listar();
+        $dadosListar =  listarCategoria();
   
         return $dadosListar;
     }
