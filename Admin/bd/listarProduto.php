@@ -32,8 +32,8 @@ function buscarNome($nome){
     //script
     $sql =" select tblproduto.*, tblcategoria.categoria from tblproduto
 	inner join tblcategoria
-    on tblcategoria.idcategoria = tblProduto.idcategoria
-    where tblproduto.valor like '%".$nome."%'"; 
+    on tblcategoria.idcategoria = tblproduto.idcategoria
+    where tblproduto.nome like '%".$nome."%'"; 
 
 
 $conexao = conexaoMysql();

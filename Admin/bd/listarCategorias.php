@@ -26,6 +26,20 @@ function buscaCategoria($idcategoria){
     return $select;
 }
 
+function buscaIdCategorias($id){
+
+    $sql = "select tblproduto.*, tblcategoria.categoria from tblproduto
+	inner join tblcategoria
+    on tblcategoria.idcategoria = tblproduto.idcategoria
+    where tblcategoria.idcategoria like '%".$id."%'";
+
+    $conexao = conexaoMysql();
+
+    $select = mysqli_query($conexao,$sql);
+
+    return $select;
+}
+
         
 
 ?>

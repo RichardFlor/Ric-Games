@@ -17,11 +17,11 @@ require_once("vendor/autoload.php");
     $app->get('/produtos', function($request, $response, $args){
 
 
-        if(isset( $request ->getQueryParams()['valor'])) 
+        if(isset( $request ->getQueryParams()['nome'])) 
         {
 
             $nome = (string) null;
-            $nome = $request ->getQueryParams()['valor']; 
+            $nome = $request ->getQueryParams()['nome']; 
 
             if($listDados = buscarNomeProdutos($nome)){
 
@@ -60,29 +60,30 @@ require_once("vendor/autoload.php");
 
 
     $app->get('/produtos/{id}', function($request, $response, $args){ 
+        
         $id = $args['id']; 
-
        
-        if($listDados = buscarCategorias($id)){ 
-           
-                if( $listDadosArray = criarArrayCategorias($listDados)){  
-                         $listDadosJSON = criarJSONCategorias($listDadosArray);
+        if($listDados = buscarIdCategorias($id)){ 
+            //var_dump($listDados); teste para ver se foi 
+            //die;
+                if( $listDadosArray = criarArray($listDados)){ 
+                         $listDadosJSON = criarJSON($listDadosArray);
                 }
         } 
        
-        
-        if( $listDadosArray){ 
+       
+        if( $listDadosArray){
             return $response   ->withStatus(200) 
                                ->withHeader('Content-Type', 'application/json') 
-                               ->write($listDadosJSON); 
+                               ->write($listDadosJSON);
 
         }else{
                          return $response   ->withStatus(204);
-                                    
+                                           
         }
+     
 
-     });
-
+    });
     $app->run();
 
 ?>

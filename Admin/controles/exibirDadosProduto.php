@@ -14,6 +14,10 @@ require_once(SRC. 'bd/listarCategorias.php');
     
         return $dados;
     }
+    function buscarIdCategorias($id){
+        $dados = buscaIdCategorias($id);
+        return $dados;
+    }
     
     function criarArray($obj){
         $cont = (int) 0;
