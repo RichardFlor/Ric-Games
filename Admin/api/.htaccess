@@ -1,0 +1,10 @@
+#Código para ocultar a palavra index.php
+#Utilizamos essa estrutura para ficar uma url mais amigável na chamada da API
+
+
+RewriteEngine On
+Options All -Indexes
+
+DirectoryIndex index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) http://localhost/ds2t20212/Richard/RicGames/admin/api/index.php?url=$1 [QSA,L]

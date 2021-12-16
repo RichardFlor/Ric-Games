@@ -28,6 +28,24 @@ function busca($idproduto){
     return $select;
 }
 
+function buscarNome($nome){
+    //script
+    $sql =" select tblproduto.*, tblcategoria.categoria from tblproduto
+	inner join tblcategoria
+    on tblcategoria.idcategoria = tblProduto.idcategoria
+    where tblproduto.valor like '%".$nome."%'"; 
+
+
+$conexao = conexaoMysql();
+
+
+$select =  mysqli_query($conexao, $sql);
+
+return $select;
+}
+
+
+
         
 
 ?>
